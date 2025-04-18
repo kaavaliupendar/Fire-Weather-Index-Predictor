@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fire Weather Index Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f1f5f9;
+      margin: 0;
+      padding: 0;
+      color: #1e293b;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      padding: 7rem 1.5rem 6rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      color: #dbeafe;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+      color: white;
+      padding: 1rem 2.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .section {
+      max-width: 960px;
+      margin: -2.5rem auto 4rem;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 2.75rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .info-card h2 {
+      font-size: 2rem;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .info-card p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #475569;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.95rem;
+      padding: 2rem 1rem 3rem;
+      color: #94a3b8;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .btn-primary {
+        padding: 0.85rem 2rem;
+        font-size: 1rem;
+      }
+
+      .info-card {
+        padding: 2rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Fire Weather Index Predictor</h1>
+    <p>
+      Accurately assess wildfire risk using real-time climate inputs and machine learning. 
+      Our tool empowers fire response teams and researchers to make fast, data-driven decisions.
+    </p>
+    <a href="/home" class="btn-primary">Start Predicting</a>
+  </div>
+
+  <div class="section">
+    <div class="info-card">
+      <h2>What is FWI?</h2>
+      <p>
+        The Fire Weather Index (FWI) is a globally recognized standard for estimating the intensity and spread potential of wildfires. 
+        It integrates temperature, humidity, wind speed, and rainfall to produce a comprehensive fire danger score. 
+        Our predictive system uses advanced machine learning models to forecast FWI levels and support proactive planning.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Fire Weather Index Predictor 
+  </footer>
+
+</body>
+</html>

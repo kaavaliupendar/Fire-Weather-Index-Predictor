@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FWI Prediction</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+      color: #1e293b;
+    }
+
+    .wrapper {
+      max-width: 960px;
+      margin: auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      color: #475569;
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background-color: #f1f5f9;
+      font-size: 1rem;
+    }
+
+    button {
+      grid-column: 1 / -1;
+      padding: 1rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .result {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .error {
+      color: #dc2626;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>🔥 Predict Fire Weather Index</h1>
+      <p>
+        Enter environmental inputs to get a real-time FWI prediction powered by our machine learning model. This helps assess wildfire likelihood for safety planning and early intervention.
+      </p>
+    </div>
+
+    <div class="card">
+      <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <input type="number" step="any" name="Temperature" placeholder="Temperature (°C)" required>
+        <input type="number" step="any" name="RH" placeholder="Relative Humidity (%)" required>
+        <input type="number" step="any" name="Ws" placeholder="Wind Speed (km/h)" required>
+        <input type="number" step="any" name="Rain" placeholder="Rainfall (mm)" required>
+        <input type="number" step="any" name="FFMC" placeholder="Fine Fuel Moisture Code (FFMC)" required>
+        <input type="number" step="any" name="DMC" placeholder="Duff Moisture Code (DMC)" required>
+        <input type="number" step="any" name="ISI" placeholder="Initial Spread Index (ISI)" required>
+        <input type="number" step="any" name="Classes" placeholder="Fire Class Index (0–5)" required>
+        <input type="number" step="any" name="Region" placeholder="Region (1 or 2)" required>
+        <button type="submit">Predict FWI</button>
+      </form>
+
+      {% if results is not none %}
+        {% if results is string and "Error" in results %}
+          <div class="result error">{{ results }}</div>
+        {% else %}
+          <div class="result">🔥 Predicted FWI: <strong>{{ results }}</strong></div>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    <footer>
+      &copy; 2025 FWI Predictor — Developed for proactive wildfire risk management.
+    </footer>
+  </div>
+</body>
+</html>
